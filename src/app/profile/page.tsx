@@ -17,7 +17,7 @@ const Page = () => {
     // Redirect to home if user is not authenticated
     useEffect(() => {
         if (status === 'unauthenticated') {
-            router.push('/')
+            router.replace('/')
         }
     }, [status, router])
 
