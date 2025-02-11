@@ -24,7 +24,7 @@ const Header = () => {
         </Link>
         { initialLoding && status === "loading"  ? <BiLoaderCircle className='animate-spin' /> :!session ? 
         <div className='__menu'>
-            <Button onClick={() => signIn('google') }>Log in</Button>
+            <Button onClick={() => signIn('google', {callbackUrl::'/', redirect:true}) }>Log in</Button>
         </div> :
         <div className="flex gap-3 justify-center items-center">
           <Button variant="destructive"
