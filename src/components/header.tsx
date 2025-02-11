@@ -28,7 +28,7 @@ const Header = () => {
         </div> :
         <div className="flex gap-3 justify-center items-center">
           <Button variant="destructive"
-          onClick={() => signOut()}
+          onClick={() => signOut({callbackUrl:'/', redirect:true)}
           >Logout</Button>
           <Link href='/profile'>
          <Avatar>
