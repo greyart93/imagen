@@ -91,8 +91,7 @@ const Page = () => {
                 />
               </FormControl>
               
-              <FormMessage />
-            </FormItem>
+                <FormMessage className='text-red-400 text-sm font-medium bg-red-950/50 px-3 py-1 rounded-md border border-red-800' />            </FormItem>
           )}
         />
         <Button loading={loading} type="submit">Generate</Button>
