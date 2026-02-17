@@ -79,7 +79,7 @@ const Page = () => {
                                 duration: 0.2,
                                 delay: index * 0.3
                             }}
-                            className='w-full h-full p-2.5 border rounded-md' key={post.id}
+                            className='w-full h-fit  p-2.5 border rounded-md' key={post.id}
                         >
                             <Image
                                 alt={post.prompt}

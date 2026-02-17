@@ -37,13 +37,16 @@ const Page = () => {
             setLoading(true)
             const response = await fetch("api/image", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(values),
 
         })
         const data = await response.json()
         if(response.status == 200) {
         // console.log(data)
-        console.log(data.url)
+        console.log("data.url:", data.url)
         setOutputImg(data.url)
         // console.log(values.prompt)
         }

@@ -28,11 +28,15 @@ export async function POST(request: NextRequest) {
     }
 
     const randomSeed = generateRandomNumber()
-    const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(
+    const imageURL = `https://gen.pollinations.ai/image/${encodeURIComponent(
         prompt 
-    )}?seed=${randomSeed}&width=512&height=512&nologo=True`;
+    )}?model=flux&seed=${randomSeed}&width=512&height=512&nologo=True`;
 
-    await fetch(imageURL)
+    await fetch(imageURL, {
+        headers: {
+            Authorization: `Bearer ${process.env.POLLINATIONS_API_KEY}`
+        }
+    })
     
     await prisma.post.create({
         data:{
@@ -42,8 +46,8 @@ export async function POST(request: NextRequest) {
             seed: randomSeed
         }
     })
-
-    return NextResponse.json({ url: imageURL})
+    const proxiedUrl = `/api/image-proxy?url=${encodeURIComponent(imageURL)}`;
+    return NextResponse.json({ url: proxiedUrl})
 }
 
 export async function GET() {
